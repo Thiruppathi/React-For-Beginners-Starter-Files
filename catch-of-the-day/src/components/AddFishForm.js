@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { PropTypes } from "prop-types";
 
 class AddFishForm extends Component {
   nameRef = React.createRef();
@@ -6,6 +7,10 @@ class AddFishForm extends Component {
   statusRef = React.createRef();
   descRef = React.createRef();
   imageRef = React.createRef();
+
+  static propTypes = {
+    addFish: PropTypes.func
+  };
 
   createFish = event => {
     event.preventDefault(); // Prevent Form Submission
@@ -31,8 +36,8 @@ class AddFishForm extends Component {
           ref={this.priceRef}
         />
         <select name="status" placeholder="Status" ref={this.statusRef}>
-          <option value="Available">Fresh!</option>
-          <option value="Available">Sold Out!</option>
+          <option value="available">Fresh!</option>
+          <option value="unavailable">Sold Out!</option>
         </select>
         <textarea
           type="text"
